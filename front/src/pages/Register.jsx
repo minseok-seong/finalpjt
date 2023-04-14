@@ -1,0 +1,107 @@
+import styled from "styled-components";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+`;
+
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 300;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0px 0px;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+`;
+
+const Register = () => {
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const body = {
+        username: username,
+        email: email,
+        password: password,
+      };
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        body
+      );
+      if (res.data.success) {
+        alert("회원가입성공");
+        navigate("/login");
+      } else {
+        alert("회원가입실패");
+      }
+    } catch (err) {}
+  };
+  return (
+    <Container>
+      <Wrapper>
+        <Title>회원가입</Title>
+        <Form>
+          <Input
+            placeholder="username"
+            value={username}
+            onChange={(e) => setusername(e.target.value)}
+          />
+          <Input
+            placeholder="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
+          <Input
+            placeholder="password"
+            type="password"
+            value={password}
+            onChange={(e) => setpassword(e.target.value)}
+          />
+          <Button onClick={handleRegister}>등록</Button>
+        </Form>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Register;

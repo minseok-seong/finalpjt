@@ -1,0 +1,7 @@
+.img {
+  object-fit: contain;
+  margin-right: 15px;
+}
+.chatbot {
+  color: rgb(95, 95, 215);
+}
