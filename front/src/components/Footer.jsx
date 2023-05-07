@@ -8,10 +8,12 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import styled from "styled-components";
+import { mobile } from "./responsive";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`

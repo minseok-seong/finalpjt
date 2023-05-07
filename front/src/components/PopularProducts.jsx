@@ -2,12 +2,15 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Product from "./Product";
+import { mobile } from "./responsive";
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: space-between;
+
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const TitleDiv = styled.div`
@@ -29,6 +32,7 @@ const PopularProducts = () => {
   const getPopularProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/products");
+      // const res = await axios.get("http://172.18.8.254:5000/api/products");
       setproducts(res.data);
     } catch (e) {}
   };

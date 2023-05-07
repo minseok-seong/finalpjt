@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Product from "./Product";
 import axios from "axios";
+import { mobile } from "./responsive";
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Products = ({ cat, sort }) => {

@@ -10,16 +10,19 @@ import axios from "axios";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { Avatar } from "@mui/material";
+import { mobile } from "../components/responsive";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
   flex: 1;
+  ${mobile({ marginBottom: "20px" })}
 `;
 
 const Image = styled.img`

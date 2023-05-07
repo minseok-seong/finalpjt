@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../redux/cartRedux";
 import axios from "axios";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
+import { mobile } from "./responsive";
 const Info = styled.div`
   position: absolute;
   top: 0;

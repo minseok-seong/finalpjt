@@ -66,7 +66,7 @@ const Navbar = () => {
           <LinkStyle to="/productUpload">
             <div className="community">물건팔기</div>
           </LinkStyle>
-          <div className="nav-form">
+          {/* <div className="nav-form">
             <input
               type="text"
               value={cat}
@@ -75,7 +75,7 @@ const Navbar = () => {
               placeholder="학과명을 입력해주세요 ex)컴퓨터과"
             />
             <Search onClick={(e) => handleInput()} />
-          </div>
+          </div> */}
         </div>
         <div className="center">
           <LinkStyle className="title" to={"/"}>
@@ -83,7 +83,7 @@ const Navbar = () => {
               style={{ objectFit: "contain" }}
               src="https://img.icons8.com/color/48/null/story-book.png"
             />
-            <h1 className="logo">영진북마켓</h1>
+            <h1 className="logo">영진마켓</h1>
             <img
               style={{ objectFit: "contain" }}
               src="https://img.icons8.com/color/48/null/story-book.png"

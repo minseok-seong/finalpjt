@@ -12,6 +12,8 @@ import styled from "styled-components";
 import { Fab } from "@mui/material";
 import { Add, NavigationOutlined } from "@mui/icons-material";
 import ChatModal from "../components/ChatModal";
+import SearchText from "../components/SearchText";
+import { mobile } from "../components/responsive";
 
 // const Sticky = styled.div`
 //   position: sticky;
@@ -31,7 +33,9 @@ const Home = () => {
       {/* </Sticky> */}
 
       <Slider />
+      {/* <SearchText /> */}
       <Categories />
+      <SearchText />
       <PopularProducts />
       <Newsletter />
       <Footer />
@@ -44,7 +48,8 @@ const Home = () => {
       >
         <Add />
       </Fab> */}
-      <Fab
+      <MyFab
+        className="chatting"
         onClick={showModal}
         variant="extended"
         size="primary"
@@ -55,10 +60,16 @@ const Home = () => {
         {/* <NavigationOutlined sx={{ mr: 1 }} /> */}
         <img className="img" src="https://img.icons8.com/nolan/64/bot.png" />
         <span className="chatbot">챗봇에게 물어봐</span>
-      </Fab>
+      </MyFab>
       {modalOpen && <ChatModal setmodalOpen={setmodalOpen} />}
     </>
   );
 };
+
+const MyFab = styled(Fab)`
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+`;
 
 export default Home;

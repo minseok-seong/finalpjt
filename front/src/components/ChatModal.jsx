@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import { basicSteps } from "../data";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { mobile } from "./responsive";
 
 const Container = styled.div`
   width: auto;
@@ -12,6 +13,7 @@ const Container = styled.div`
   bottom: 0;
   right: 10px;
   background-color: white;
+  ${mobile({ right: "10px", width: "70%" })}
 `;
 
 const Title = styled.h3`

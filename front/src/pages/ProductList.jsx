@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Pagination } from "@mui/material";
+import { mobile } from "../components/responsive";
 
 const Container = styled.div``;
 
@@ -17,6 +18,7 @@ const Title = styled.h1`
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column", alignItem: "center" })}
 `;
 
 const Filter = styled.div`
@@ -76,6 +78,7 @@ const ProductList = () => {
           </Select>
         </Filter>
         <Filter>
+          <FilterText>정렬:</FilterText>
           <Select onChange={(e) => setsort(e.target.value)}>
             <Option value="newest">최신순</Option>
             <Option value="asc">높은가격순</Option>

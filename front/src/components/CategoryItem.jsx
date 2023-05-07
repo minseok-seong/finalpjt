@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { mobile } from "./responsive";
 
 const LinkStyle = styled(Link)`
   color: black;
@@ -8,7 +9,9 @@ const LinkStyle = styled(Link)`
 `;
 const Container = styled.div`
   flex: 1;
+  /* width: 25%; */
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,6 +20,7 @@ const Container = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+  ${mobile({ flex: "25%" })}
 `;
 
 const Image = styled.img`

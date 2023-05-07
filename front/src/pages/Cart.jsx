@@ -6,11 +6,13 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { removeProduct } from "../redux/cartRedux";
+import { mobile } from "../components/responsive";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobile({ marginBottom: "40px" })}
 `;
 
 const Title = styled.h1`

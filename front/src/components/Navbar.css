@@ -97,3 +97,22 @@
   margin-right: 5px;
   padding: 5px;
 }
+
+@media (max-width: 380px) {
+  .container {
+    margin-bottom: 20px;
+    position: static;
+  }
+  .center {
+    display: none;
+  }
+  .img {
+    display: none;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+  .lists {
+    z-index: 10000;
+  }
+}

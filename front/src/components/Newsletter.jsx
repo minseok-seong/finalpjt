@@ -2,6 +2,7 @@ import { Send } from "@mui/icons-material";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Question from "./Question";
+import { mobile } from "./responsive";
 
 const News = styled.div`
   position: relative;
@@ -13,6 +14,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  ${mobile({ textAlign: "center" })}
 `;
 
 const Title = styled.h1`
