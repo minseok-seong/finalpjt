@@ -1,5 +1,5 @@
-import { Add, Remove } from "@mui/icons-material";
-import { useLocation } from "react-router-dom";
+import { Add, Chat, Remove } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
@@ -8,8 +8,8 @@ import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import axios from "axios";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
-import { Avatar } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { Avatar, IconButton } from "@mui/material";
 import { mobile } from "../components/responsive";
 
 const Container = styled.div``;
@@ -118,6 +118,7 @@ const Button = styled.button`
 `;
 const User = styled.h3`
   margin-left: 20px;
+  margin-right: 20px;
 `;
 
 const Product = () => {
@@ -128,7 +129,33 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
+  const handleContact = async () => {
+    const sellerId = product.author._id;
+    const buyerId = user.uId;
+    const id = sellerId + buyerId;
+
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/api/conversations/single/${id}`
+      );
+      navigate(`/message/${res.data.id}`);
+    } catch (err) {
+      if (err.response.status === 404) {
+        const res = await axios.post(
+          `http://localhost:5000/api/conversations/`,
+          {
+            id: id,
+            sellerId: sellerId,
+            buyerId: buyerId,
+          }
+        );
+        navigate(`/message/${res.data.id}`);
+      }
+    }
+  };
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -171,6 +198,13 @@ const Product = () => {
           >
             <Avatar>{product.author?.username}</Avatar>
             <User>{`판매자 : ${product.author?.username}`}</User>
+            <IconButton
+              onClick={handleContact}
+              aria-label="add to shopping cart"
+              style={{ color: "green" }}
+            >
+              <Chat style={{ marginRight: "5px" }} /> 문의
+            </IconButton>
           </div>
 
           <Title>{product.title}</Title>

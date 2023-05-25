@@ -14,6 +14,7 @@ import { Add, NavigationOutlined } from "@mui/icons-material";
 import ChatModal from "../components/ChatModal";
 import SearchText from "../components/SearchText";
 import { mobile } from "../components/responsive";
+import { useSelector } from "react-redux";
 
 // const Sticky = styled.div`
 //   position: sticky;
@@ -21,6 +22,7 @@ import { mobile } from "../components/responsive";
 // `;
 const Home = () => {
   const [modalOpen, setmodalOpen] = useState(false);
+
   const showModal = () => {
     setmodalOpen(true);
   };

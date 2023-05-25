@@ -89,7 +89,7 @@ const Login = () => {
         body
       );
       // const res = await axios.post(
-      //   "http://172.18.8.254:5000/api/auth/login",
+      //   "http://localhost:5000/api/auth/login",
       //   body
       // );
       if (res.data.success) {

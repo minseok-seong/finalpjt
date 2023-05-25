@@ -94,6 +94,7 @@ const Community = () => {
           <Edit />
         </Fab>
       </UploadDiv>
+      9
       <SearchDiv>
         <InputDiv>
           <Input

@@ -120,6 +120,18 @@ const Navbar = () => {
                   <li onClick={() => navigate("/mypage")} className="list">
                     내찜목록
                   </li>
+                  <li
+                    onClick={() => navigate(`/sellmessage/${user.uId}`)}
+                    className="list"
+                  >
+                    판매메시지
+                  </li>
+                  <li
+                    onClick={() => navigate(`/buyermessage/${user.uId}`)}
+                    className="list"
+                  >
+                    구매메시지
+                  </li>
                 </ul>
               )}
             </div>

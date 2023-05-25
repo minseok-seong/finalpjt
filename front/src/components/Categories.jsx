@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { categories } from "../data";
 import CategoryItem from "./CategoryItem";
 import { mobile } from "../components/responsive";
+import axios from "axios";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -27,12 +28,21 @@ const Wrapper = styled.div`
 `;
 
 const Categories = () => {
+  const [imgurl, setimgurl] = useState([]);
+  useEffect(() => {
+    getCatimg();
+  }, []);
+
+  const getCatimg = async () => {
+    const res = await axios.get(" http://localhost:5000/api/cat");
+    setimgurl(res.data);
+  };
   return (
     <Container>
       <Title>여러분의 학과를 선택해주세요</Title>
       <Wrapper>
-        {categories.map((item) => (
-          <CategoryItem item={item} key={item.id} />
+        {imgurl.map((item) => (
+          <CategoryItem item={item} key={item._id} />
         ))}
       </Wrapper>
     </Container>

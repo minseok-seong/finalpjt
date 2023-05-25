@@ -32,7 +32,7 @@ const PopularProducts = () => {
   const getPopularProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/products");
-      // const res = await axios.get("http://172.18.8.254:5000/api/products");
+      // const res = await axios.get("http://localhost:5000/api/products");
       setproducts(res.data);
     } catch (e) {}
   };

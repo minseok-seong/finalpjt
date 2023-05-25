@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./Slider.css";
 import styled from "styled-components";
 import { sliderItems } from "../data";
+import axios from "axios";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -20,11 +21,21 @@ const Slide = styled.div`
 `;
 const Slider = () => {
   const [slideIndex, setslideIndex] = useState(0);
+  const [imgurl, setimgurl] = useState([]);
+
+  useEffect(() => {
+    getSlideimg();
+  }, []);
+
+  const getSlideimg = async () => {
+    const res = await axios.get(" http://localhost:5000/api/slider");
+    setimgurl(res.data);
+  };
 
   useEffect(() => {
     const sliderLoop = setTimeout(() => {
       setslideIndex(() => {
-        if (slideIndex < sliderItems.length - 1) {
+        if (slideIndex < imgurl.length - 1) {
           setslideIndex(slideIndex + 1);
         } else setslideIndex(0);
       });
@@ -46,21 +57,16 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </div>
       <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item) => (
-          <Slide bg={item.bg} key={item.id}>
+        {imgurl.map((item) => (
+          <Slide key={item._id}>
             <div className="imgContainer">
-              <img src={item.img} alt="" />
-            </div>
-            <div className="infoContainer">
-              <h1 className="title">{item.title}</h1>
-              <p className="desc">{item.desc}</p>
-              {/* <button className="btn">More</button> */}
+              <img src={item.url} alt="" />
             </div>
           </Slide>
         ))}
       </Wrapper>
       <div className="slideNum">
-        <span>{parseInt(slideIndex) + 1 + "/" + sliderItems.length}</span>
+        <span>{parseInt(slideIndex) + 1 + "/" + imgurl.length}</span>
       </div>
       <div className="slider-right" onClick={() => handleClick("right")}>
         <ArrowRightOutlined />

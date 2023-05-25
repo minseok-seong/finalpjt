@@ -9,6 +9,10 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const postRoute = require("./routes/post");
 const repleRoute = require("./routes/reple");
+const conversationRoute = require("./routes/conversation");
+const messageRoute = require("./routes/message");
+const sliderRoute = require("./routes/slider");
+const catRoute = require("./routes/cat");
 
 const cors = require("cors");
 
@@ -30,6 +34,10 @@ app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/post", postRoute);
 app.use("/api/reple", repleRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
+app.use("/api/slider", sliderRoute);
+app.use("/api/cat", catRoute);
 
 app.use("/image", express.static("./image"));
 

@@ -5,24 +5,24 @@ export const sliderItems = [
     id: 1,
     img:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQReHEWHxbOLN5WTgkjG4lX3euK-IfjPlpww&usqp=CAU",
-    title: "중고거래 에티켓",
-    desc: "학생여러분 기본적인 매너를 지켜주세요",
-    bg: "dfe54e",
+    // title: "중고거래 에티켓",
+    // desc: "학생여러분 기본적인 매너를 지켜주세요",
+    // bg: "dfe54e",
   },
   {
     id: 2,
     img: "https://img2.joongna.com/media/original/2023/01/31/1675156866566.png",
-    title: "AUTUMN COLLECTION",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "9a8e8e",
+    // title: "AUTUMN COLLECTION",
+    // desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    // bg: "9a8e8e",
   },
   {
     id: 3,
     img:
       "https://openads-real.s3.amazonaws.com/openadsAdmin/images/contsThumb/contsThumb_1021143730450_%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98%20%EC%8B%9C%EC%9E%A5,%20%EB%B9%84%EC%A3%BC%EB%A5%98%EB%9D%BC%EB%8A%94%20%EC%84%A4%EC%9B%80%20%ED%84%B8%EA%B3%A0%20%EC%A3%BC%EB%A5%98%EB%A1%9C%20%EB%B6%80%EC%83%81.png",
-    title: "당신의 근처",
-    desc: "전공책 가격 너무 비싸지 않나요? 저희 마켓을 이용해 보세요",
-    bg: "fbf0f4",
+    // title: "당신의 근처",
+    // desc: "전공책 가격 너무 비싸지 않나요? 저희 마켓을 이용해 보세요",
+    // bg: "fbf0f4",
   },
 ];
 
